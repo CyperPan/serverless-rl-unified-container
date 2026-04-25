@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.dockerignore
+.env
+.env.example
+README.md
+local_4060ti/
+profile_unified.py
+profile_unified.sbatch
+unified_*.json
+unified_*.out

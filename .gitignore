@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Environment / secrets
+.env
+.env.local
+*.local
+
+# Local-only artifacts
+local_4060ti/results/
+local_4060ti/.env
+
+# Native bundle pulled in by build.sh — license is Apache 2.0 but we keep
+# it out of the repo and let users symlink/download themselves.
+mujoco210/
+mujoco-py/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store

@@ -1,0 +1,59 @@
+# Local test bench for the unified actor+learner container.
+# Targets RTX 4060 Ti (8 / 16 GB) via nvidia-container-toolkit.
+#
+# Bring up:   docker compose up -d redis
+# Build:      docker compose build unified
+# Cold-start: docker compose run --rm unified                  # one cold invocation
+# Warm pool:  docker compose up -d unified  → ./invoke.py ...  # repeated invocations
+# Tear down:  docker compose down -v
+#
+# On Linux: requires nvidia-container-toolkit (see README.md).
+# On WSL2:  works via Docker Desktop with WSL backend + GPU enabled.
+# On macOS: skip the GPU section — no passthrough; set NUM_GPUS_LEARNER=0.
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: unified_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly no
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 10
+
+  unified:
+    build:
+      context: ..                 # parent dir holds the Dockerfile
+      dockerfile: Dockerfile
+    image: unified_rl:4060ti
+    container_name: unified_handler
+    # Lambda Runtime Interface Emulator listens on :8080 internally.
+    ports:
+      - "9000:8080"
+    environment:
+      ALGO_NAME: ppo
+      ENV_NAME: Hopper-v4
+      ROLLOUT_FRAGMENT_LENGTH: 512
+      TRAIN_BATCH_SIZE: 4096
+      SGD_MINIBATCH_SIZE: 128
+      NUM_GPUS_LEARNER: ${NUM_GPUS_LEARNER:-1}      # set to 0 on CPU-only hosts
+      NUM_ENVS_PER_WORKER: 1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      UNIFIED_PREWARM: ${UNIFIED_PREWARM:-1}
+      UNIFIED_WARMUP_LEARN: ${UNIFIED_WARMUP_LEARN:-1}
+      # Make the lazy CUDA init deterministic across runs.
+      CUDA_VISIBLE_DEVICES: ${CUDA_VISIBLE_DEVICES:-0}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    depends_on:
+      redis:
+        condition: service_healthy

@@ -1,0 +1,1477 @@
+============================================
+Job:    6335834 on c2204
+CPUs:   8
+GPU:    1
+Date:   Sat Apr 25 07:47:03 AM EDT 2026
+Python: /home/pan.zhiyu/nitro_env/bin/python
+============================================
+Tesla V100-PCIE-32GB, 32768 MiB
+[producer] env=Hopper-v4 algo=ppo rollout_frag=512 train_batch=4096
+[producer] batch_rows=4096 batch_MB=0.9 weights_MB=0.5 state_MB=1.6 (109.3s)
+
+####################################################################################
+# Unified container · role=actor · env=Hopper-v4  algo=ppo
+# rollout_frag=512  train_batch=4096
+# Runs/tier: 15  GPU sample: True  num_gpus_learner: 1
+####################################################################################
+[pre] torch in modules: False, ray in modules: False
+
+====================================================================================
+PHASE T0  (15× fresh subprocess)
+====================================================================================
+
+--- T0 actor run 1/15 ---
+
+====================================================================================
+T0 actor (cold)  total=42.0447s  peakRSS=674 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1175ms · cpu 145% · ctx 603 · gpu 0%
+  import_torch_cuda            +331 MB · wall 11004ms · cpu 91% · ctx 1988 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2985ms · cpu 78% · flt 1 · ctx 1611 · gpu 0%
+  import_rllib                 +151 MB · wall 10630ms · cpu 90% · flt 7 · ctx 3967 · gpu 0%
+  build_worker                 +123 MB · wall 8689ms · cpu 91% · flt 6 · ctx 2042 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1635% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 362% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6998ms · cpu 97% · ctx 21 · gpu 0%
+
+
+--- T0 actor run 2/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.4010s  peakRSS=671 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1301ms · cpu 130% · ctx 478 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10784ms · cpu 91% · ctx 1637 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2704ms · cpu 82% · ctx 905 · gpu 0%
+  import_rllib                 +149 MB · wall 10141ms · cpu 91% · ctx 1930 · gpu 0%
+  build_worker                 +124 MB · wall 8683ms · cpu 95% · flt 5 · ctx 1822 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 545% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7176ms · cpu 97% · ctx 21 · gpu 0%
+
+
+--- T0 actor run 3/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.0723s  peakRSS=678 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1114ms · cpu 153% · ctx 564 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10704ms · cpu 92% · ctx 1799 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2665ms · cpu 83% · ctx 939 · gpu 0%
+  import_rllib                 +151 MB · wall 10165ms · cpu 93% · ctx 3368 · gpu 0%
+  build_worker                 +123 MB · wall 8702ms · cpu 95% · flt 13 · ctx 1994 · gpu 0%
+  weights_disk_read            0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 2808% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 521% · ctx 10 · gpu 0%
+  execution_sample             +1 MB · wall 7111ms · cpu 97% · ctx 38 · gpu 0%
+
+
+--- T0 actor run 4/15 ---
+
+====================================================================================
+T0 actor (cold)  total=40.7044s  peakRSS=675 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1024ms · cpu 164% · ctx 303 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10777ms · cpu 92% · ctx 1500 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2779ms · cpu 81% · ctx 1290 · gpu 0%
+  import_rllib                 +151 MB · wall 9886ms · cpu 95% · ctx 2157 · gpu 0%
+  build_worker                 +122 MB · wall 8515ms · cpu 97% · flt 2 · ctx 1111 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 353% · ctx 10 · gpu 0%
+  execution_sample             +1 MB · wall 7131ms · cpu 97% · ctx 19 · gpu 0%
+
+
+--- T0 actor run 5/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.0420s  peakRSS=673 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1039ms · cpu 163% · ctx 381 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10711ms · cpu 93% · ctx 1476 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2659ms · cpu 83% · ctx 971 · gpu 0%
+  import_rllib                 +149 MB · wall 10447ms · cpu 88% · ctx 3365 · gpu 0%
+  build_worker                 +121 MB · wall 8564ms · cpu 92% · flt 1 · ctx 2373 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 545% · ctx 9 · gpu 0%
+  execution_sample             +1 MB · wall 7050ms · cpu 97% · ctx 21 · gpu 0%
+
+
+--- T0 actor run 6/15 ---
+
+====================================================================================
+T0 actor (cold)  total=40.1281s  peakRSS=676 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1090ms · cpu 136% · ctx 453 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10724ms · cpu 93% · ctx 1295 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2641ms · cpu 84% · ctx 884 · gpu 0%
+  import_rllib                 +150 MB · wall 9693ms · cpu 95% · ctx 2041 · gpu 0%
+  build_worker                 +123 MB · wall 8352ms · cpu 98% · ctx 1169 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1084% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 359% · ctx 9 · gpu 0%
+  execution_sample             +1 MB · wall 7070ms · cpu 97% · ctx 27 · gpu 0%
+
+
+--- T0 actor run 7/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.1736s  peakRSS=674 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1046ms · cpu 160% · ctx 381 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10584ms · cpu 93% · ctx 1462 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2896ms · cpu 78% · ctx 1349 · gpu 0%
+  import_rllib                 +151 MB · wall 10235ms · cpu 90% · ctx 3499 · gpu 0%
+  build_worker                 +122 MB · wall 8768ms · cpu 95% · flt 6 · ctx 1837 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1721% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 955% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 501% · ctx 10 · gpu 0%
+  execution_sample             +1 MB · wall 7148ms · cpu 97% · ctx 20 · gpu 0%
+
+
+--- T0 actor run 8/15 ---
+
+====================================================================================
+T0 actor (cold)  total=39.8199s  peakRSS=676 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1086ms · cpu 156% · ctx 452 · gpu 0%
+  import_torch_cuda            +332 MB · wall 10541ms · cpu 93% · ctx 1324 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2586ms · cpu 85% · ctx 904 · gpu 0%
+  import_rllib                 +153 MB · wall 9565ms · cpu 98% · ctx 2028 · gpu 0%
+  build_worker                 +121 MB · wall 8513ms · cpu 98% · flt 1 · ctx 1586 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1743% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 925% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 443% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7009ms · cpu 97% · ctx 23 · gpu 0%
+
+
+--- T0 actor run 9/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.4425s  peakRSS=669 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1058ms · cpu 159% · ctx 384 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10930ms · cpu 92% · ctx 1461 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2711ms · cpu 83% · ctx 939 · gpu 0%
+  import_rllib                 +149 MB · wall 10519ms · cpu 88% · ctx 3449 · gpu 0%
+  build_worker                 +121 MB · wall 8651ms · cpu 95% · flt 8 · ctx 1876 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1846% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 1396% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 528% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 7099ms · cpu 97% · ctx 18 · gpu 0%
+
+
+--- T0 actor run 10/15 ---
+
+====================================================================================
+T0 actor (cold)  total=40.1117s  peakRSS=676 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1087ms · cpu 156% · ctx 461 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10597ms · cpu 93% · ctx 1306 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2791ms · cpu 81% · ctx 1292 · gpu 0%
+  import_rllib                 +151 MB · wall 9520ms · cpu 95% · ctx 2082 · gpu 0%
+  build_worker                 +123 MB · wall 8536ms · cpu 94% · flt 1 · ctx 1175 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 507% · ctx 11 · gpu 0%
+  execution_sample             +1 MB · wall 7077ms · cpu 97% · ctx 45 · gpu 0%
+
+
+--- T0 actor run 11/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.3327s  peakRSS=672 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1049ms · cpu 160% · ctx 379 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10725ms · cpu 92% · ctx 1464 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2662ms · cpu 83% · ctx 964 · gpu 0%
+  import_rllib                 +151 MB · wall 10697ms · cpu 90% · ctx 3404 · gpu 0%
+  build_worker                 +121 MB · wall 8620ms · cpu 91% · flt 7 · ctx 2292 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 1406% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 359% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7046ms · cpu 97% · ctx 20 · gpu 0%
+
+
+--- T0 actor run 12/15 ---
+
+====================================================================================
+T0 actor (cold)  total=39.5182s  peakRSS=670 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1098ms · cpu 141% · ctx 452 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10473ms · cpu 92% · ctx 1297 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2562ms · cpu 85% · ctx 896 · gpu 0%
+  import_rllib                 +151 MB · wall 9515ms · cpu 93% · ctx 2074 · gpu 0%
+  build_worker                 +121 MB · wall 8229ms · cpu 92% · flt 5 · ctx 1143 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 8ms · cpu 502% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 7101ms · cpu 97% · ctx 16 · gpu 0%
+
+
+--- T0 actor run 13/15 ---
+
+====================================================================================
+T0 actor (cold)  total=41.4432s  peakRSS=670 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1032ms · cpu 160% · ctx 381 · gpu 0%
+  import_torch_cuda            +327 MB · wall 10770ms · cpu 93% · ctx 1476 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2887ms · cpu 79% · ctx 1352 · gpu 0%
+  import_rllib                 +149 MB · wall 10391ms · cpu 92% · ctx 3463 · gpu 0%
+  build_worker                 +123 MB · wall 8721ms · cpu 96% · flt 2 · ctx 1892 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 1060% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 439% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7155ms · cpu 97% · ctx 33 · gpu 0%
+
+
+--- T0 actor run 14/15 ---
+
+====================================================================================
+T0 actor (cold)  total=40.3416s  peakRSS=673 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1140ms · cpu 148% · ctx 451 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10785ms · cpu 93% · ctx 1300 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2677ms · cpu 84% · ctx 906 · gpu 0%
+  import_rllib                 +149 MB · wall 9449ms · cpu 96% · ctx 2053 · gpu 0%
+  build_worker                 +122 MB · wall 8675ms · cpu 93% · flt 10 · ctx 1601 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 1841% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 541% · ctx 9 · gpu 0%
+  execution_sample             +1 MB · wall 7090ms · cpu 97% · ctx 19 · gpu 0%
+
+
+--- T0 actor run 15/15 ---
+
+====================================================================================
+T0 actor (cold)  total=40.6808s  peakRSS=675 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1041ms · cpu 161% · ctx 385 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10561ms · cpu 92% · ctx 1476 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2648ms · cpu 83% · ctx 938 · gpu 0%
+  import_rllib                 +150 MB · wall 10196ms · cpu 91% · ctx 3398 · gpu 0%
+  build_worker                 +123 MB · wall 8691ms · cpu 91% · flt 8 · ctx 1860 · gpu 0%
+  weights_disk_read            0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  weights_deserialize          0 MB · wall 1ms · cpu 1074% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 5ms · cpu 559% · ctx 9 · gpu 0%
+  execution_sample             +1 MB · wall 6957ms · cpu 97% · ctx 21 · gpu 0%
+
+
+====================================================================================
+PHASE T1  (15× rebuild)
+====================================================================================
+
+--- T1 actor run 1/15 ---
+
+====================================================================================
+T1 actor run 1  total=39.4549s  peakRSS=676 MB
+====================================================================================
+  build_worker                 +659 MB · wall 32096ms · cpu 96% · flt 1 · ctx 6309 · wr 16 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 704% · ctx 9 · gpu 0%
+  execution_sample             +3 MB · wall 7068ms · cpu 96% · ctx 26 · gpu 0%
+
+--- T1 actor run 2/15 ---
+
+====================================================================================
+T1 actor run 2  total=7.5069s  peakRSS=676 MB
+====================================================================================
+  build_worker                 +2 MB · wall 296ms · cpu 327% · ctx 54 · wr 4 KB · gpu 0%
+  weights_load                 +2 MB · wall 2ms · cpu 433% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 524% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6943ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T1 actor run 3/15 ---
+
+====================================================================================
+T1 actor run 3  total=7.5660s  peakRSS=684 MB
+====================================================================================
+  build_worker                 +3 MB · wall 283ms · cpu 325% · ctx 55 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 533% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6960ms · cpu 97% · ctx 21 · gpu 0%
+
+--- T1 actor run 4/15 ---
+
+====================================================================================
+T1 actor run 4  total=7.5861s  peakRSS=691 MB
+====================================================================================
+  build_worker                 +5 MB · wall 287ms · cpu 328% · ctx 56 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 871% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 526% · ctx 11 · gpu 0%
+  execution_sample             +2 MB · wall 6990ms · cpu 97% · ctx 22 · gpu 0%
+
+--- T1 actor run 5/15 ---
+
+====================================================================================
+T1 actor run 5  total=7.4685s  peakRSS=691 MB
+====================================================================================
+  build_worker                 0 MB · wall 233ms · cpu 287% · ctx 39 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 5ms · cpu 781% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6974ms · cpu 97% · ctx 17 · gpu 0%
+
+--- T1 actor run 6/15 ---
+
+====================================================================================
+T1 actor run 6  total=7.6581s  peakRSS=696 MB
+====================================================================================
+  build_worker                 +4 MB · wall 267ms · cpu 315% · ctx 45 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 5ms · cpu 370% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7114ms · cpu 97% · ctx 25 · gpu 0%
+
+--- T1 actor run 7/15 ---
+
+====================================================================================
+T1 actor run 7  total=7.5619s  peakRSS=696 MB
+====================================================================================
+  build_worker                 0 MB · wall 304ms · cpu 306% · ctx 47 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 531% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 6977ms · cpu 97% · ctx 32 · gpu 0%
+
+--- T1 actor run 8/15 ---
+
+====================================================================================
+T1 actor run 8  total=7.4537s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 269ms · cpu 320% · ctx 51 · wr 4 KB · gpu 0%
+  weights_load                 +2 MB · wall 3ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 9ms · cpu 540% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 6916ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T1 actor run 9/15 ---
+
+====================================================================================
+T1 actor run 9  total=7.6858s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 288ms · cpu 323% · ctx 55 · wr 8 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 547% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 7041ms · cpu 97% · ctx 20 · gpu 0%
+
+--- T1 actor run 10/15 ---
+
+====================================================================================
+T1 actor run 10  total=7.4990s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 254ms · cpu 319% · ctx 42 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 551% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6916ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T1 actor run 11/15 ---
+
+====================================================================================
+T1 actor run 11  total=7.6088s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 280ms · cpu 339% · ctx 48 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 549% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6987ms · cpu 97% · ctx 22 · gpu 0%
+
+--- T1 actor run 12/15 ---
+
+====================================================================================
+T1 actor run 12  total=7.3609s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 176ms · cpu 193% · ctx 30 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 5ms · cpu 582% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6883ms · cpu 97% · ctx 21 · gpu 0%
+
+--- T1 actor run 13/15 ---
+
+====================================================================================
+T1 actor run 13  total=7.5155s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 316ms · cpu 196% · ctx 41 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 353% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6854ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T1 actor run 14/15 ---
+
+====================================================================================
+T1 actor run 14  total=7.4618s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 276ms · cpu 340% · ctx 59 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 819% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 540% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6840ms · cpu 97% · ctx 21 · gpu 0%
+
+--- T1 actor run 15/15 ---
+
+====================================================================================
+T1 actor run 15  total=7.4331s  peakRSS=698 MB
+====================================================================================
+  build_worker                 0 MB · wall 169ms · cpu 184% · ctx 22 · wr 4 KB · gpu 0%
+  weights_load                 0 MB · wall 1ms · cpu 748% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 537% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6936ms · cpu 97% · ctx 38 · gpu 0%
+
+====================================================================================
+PHASE T2  (15× reuse, reload state)
+====================================================================================
+
+--- T2 actor run 1/15 ---
+
+====================================================================================
+T2 actor run 1  total=7.1343s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 619% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6911ms · cpu 97% · ctx 20 · gpu 0%
+
+--- T2 actor run 2/15 ---
+
+====================================================================================
+T2 actor run 2  total=7.1275s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 3ms · cpu 347% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 15ms · cpu 523% · ctx 12 · gpu 0%
+  execution_sample             0 MB · wall 6940ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T2 actor run 3/15 ---
+
+====================================================================================
+T2 actor run 3  total=7.0541s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 420% · ctx 12 · gpu 0%
+  execution_sample             0 MB · wall 6857ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T2 actor run 4/15 ---
+
+====================================================================================
+T2 actor run 4  total=7.1016s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 522% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6907ms · cpu 97% · ctx 28 · gpu 0%
+
+--- T2 actor run 5/15 ---
+
+====================================================================================
+T2 actor run 5  total=7.0737s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 581% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 6ms · cpu 353% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6873ms · cpu 97% · ctx 21 · gpu 0%
+
+--- T2 actor run 6/15 ---
+
+====================================================================================
+T2 actor run 6  total=7.0175s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 561% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 522% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 6809ms · cpu 97% · ctx 24 · gpu 0%
+
+--- T2 actor run 7/15 ---
+
+====================================================================================
+T2 actor run 7  total=7.0118s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 553% · ctx 9 · gpu 0%
+  execution_sample             0 MB · wall 6831ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T2 actor run 8/15 ---
+
+====================================================================================
+T2 actor run 8  total=7.0675s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 1ms · cpu 678% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 552% · ctx 10 · gpu 0%
+  execution_sample             0 MB · wall 6860ms · cpu 97% · ctx 48 · gpu 0%
+
+--- T2 actor run 9/15 ---
+
+====================================================================================
+T2 actor run 9  total=7.0479s  peakRSS=698 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 562% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 524% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6790ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T2 actor run 10/15 ---
+
+====================================================================================
+T2 actor run 10  total=7.0486s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 579% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 620% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6817ms · cpu 97% · ctx 23 · gpu 0%
+
+--- T2 actor run 11/15 ---
+
+====================================================================================
+T2 actor run 11  total=7.0504s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 558% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 571% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6852ms · cpu 97% · ctx 20 · gpu 0%
+
+--- T2 actor run 12/15 ---
+
+====================================================================================
+T2 actor run 12  total=7.0317s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 1ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 11ms · cpu 544% · ctx 12 · gpu 0%
+  execution_sample             0 MB · wall 6811ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T2 actor run 13/15 ---
+
+====================================================================================
+T2 actor run 13  total=7.0133s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 605% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6820ms · cpu 96% · ctx 24 · gpu 0%
+
+--- T2 actor run 14/15 ---
+
+====================================================================================
+T2 actor run 14  total=7.0454s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 1ms · cpu 678% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 12ms · cpu 522% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6839ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T2 actor run 15/15 ---
+
+====================================================================================
+T2 actor run 15  total=7.0177s  peakRSS=699 MB
+====================================================================================
+  weights_load                 0 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  set_weights                  0 MB · wall 10ms · cpu 480% · ctx 11 · gpu 0%
+  execution_sample             0 MB · wall 6769ms · cpu 97% · ctx 18 · gpu 0%
+
+====================================================================================
+PHASE T3  (15× exec only)
+====================================================================================
+
+--- T3 actor run 1/15 ---
+
+====================================================================================
+T3 actor run 1  total=6.7801s  peakRSS=703 MB
+====================================================================================
+  execution_sample             +4 MB · wall 6780ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T3 actor run 2/15 ---
+
+====================================================================================
+T3 actor run 2  total=6.7809s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6781ms · cpu 97% · ctx 30 · gpu 0%
+
+--- T3 actor run 3/15 ---
+
+====================================================================================
+T3 actor run 3  total=6.7574s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6757ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 4/15 ---
+
+====================================================================================
+T3 actor run 4  total=6.7281s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6728ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T3 actor run 5/15 ---
+
+====================================================================================
+T3 actor run 5  total=6.7813s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6781ms · cpu 97% · ctx 19 · gpu 0%
+
+--- T3 actor run 6/15 ---
+
+====================================================================================
+T3 actor run 6  total=6.7686s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6769ms · cpu 97% · ctx 20 · gpu 0%
+
+--- T3 actor run 7/15 ---
+
+====================================================================================
+T3 actor run 7  total=6.8049s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6805ms · cpu 97% · ctx 20 · gpu 0%
+
+--- T3 actor run 8/15 ---
+
+====================================================================================
+T3 actor run 8  total=6.7941s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6794ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 9/15 ---
+
+====================================================================================
+T3 actor run 9  total=6.7600s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6760ms · cpu 97% · ctx 17 · gpu 0%
+
+--- T3 actor run 10/15 ---
+
+====================================================================================
+T3 actor run 10  total=6.7045s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6704ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 11/15 ---
+
+====================================================================================
+T3 actor run 11  total=6.7668s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6767ms · cpu 97% · ctx 37 · gpu 0%
+
+--- T3 actor run 12/15 ---
+
+====================================================================================
+T3 actor run 12  total=6.7712s  peakRSS=703 MB
+====================================================================================
+  execution_sample             0 MB · wall 6771ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 13/15 ---
+
+====================================================================================
+T3 actor run 13  total=6.7876s  peakRSS=704 MB
+====================================================================================
+  execution_sample             0 MB · wall 6788ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 14/15 ---
+
+====================================================================================
+T3 actor run 14  total=6.7661s  peakRSS=704 MB
+====================================================================================
+  execution_sample             0 MB · wall 6766ms · cpu 97% · ctx 18 · gpu 0%
+
+--- T3 actor run 15/15 ---
+
+====================================================================================
+T3 actor run 15  total=6.7672s  peakRSS=704 MB
+====================================================================================
+  execution_sample             0 MB · wall 6767ms · cpu 97% · ctx 14 · gpu 0%
+
+
+####################################################################################
+# SUMMARY · role=actor · 15 runs/tier
+####################################################################################
+
+--- T0 actor (N=15) ---
+  total_wall_s : 40.82 ± 0.7097 (min 39.52, max 42.04)
+  peak_rss_mb  : 673.4 ± 2.733 (min 668.6, max 678.2)
+  per-phase wall_ms:
+    import_gymnasium           1092 ± 71.82 (min 1024, max 1301)
+    import_torch_cuda          1.071e+04 ± 144 (min 1.047e+04, max 1.1e+04)
+    import_ray                 2723 ± 120.8 (min 2562, max 2985)
+    import_rllib               1.007e+04 ± 434.1 (min 9449, max 1.07e+04)
+    build_worker               8594 ± 147.3 (min 8229, max 8768)
+    weights_disk_read          0.8481 ± 0.3113 (min 0.5399, max 1.575)
+    weights_deserialize        0.8821 ± 0.142 (min 0.6685, max 1.082)
+    set_weights                8.105 ± 2.988 (min 5.371, max 11.97)
+    execution_sample           7081 ± 61.47 (min 6957, max 7176)
+
+--- T1 actor (N=15) ---
+  total_wall_s : 9.655 ± 8.244 (min 7.361, max 39.45)
+  peak_rss_mb  : 692.7 ± 7.897 (min 675.6, max 697.8)
+  per-phase wall_ms:
+    build_worker               2386 ± 8219 (min 168.7, max 3.21e+04)
+    weights_load               1.485 ± 0.5035 (min 1.142, max 2.925)
+    set_weights                9.115 ± 2.766 (min 5.123, max 11.45)
+    execution_sample           6960 ± 75.7 (min 6840, max 7114)
+
+--- T2 actor (N=15) ---
+  total_wall_s : 7.056 ± 0.03904 (min 7.012, max 7.134)
+  peak_rss_mb  : 698.4 ± 0.3683 (min 697.8, max 698.9)
+  per-phase wall_ms:
+    weights_load               1.752 ± 0.3575 (min 1.28, max 2.885)
+    set_weights                11.11 ± 1.881 (min 5.669, max 15.29)
+    execution_sample           6846 ± 47.32 (min 6769, max 6940)
+
+--- T3 actor (N=15) ---
+  total_wall_s : 6.768 ± 0.02499 (min 6.704, max 6.805)
+  peak_rss_mb  : 703.2 ± 0.2764 (min 702.7, max 703.7)
+  per-phase wall_ms:
+    execution_sample           6768 ± 24.99 (min 6704, max 6805)
+
+[wrote] /tmp/unified_actor_6335834.json
+
+====================================================================================
+DONE
+====================================================================================
+
+####################################################################################
+# Unified container · role=learner · env=Hopper-v4  algo=ppo
+# rollout_frag=512  train_batch=4096
+# Runs/tier: 15  GPU sample: True  num_gpus_learner: 1
+####################################################################################
+[pre] torch in modules: False, ray in modules: False
+
+====================================================================================
+PHASE T0  (15× fresh subprocess)
+====================================================================================
+
+--- T0 learner run 1/15 ---
+
+====================================================================================
+T0 learner (cold)  total=41.0188s  peakRSS=1325 MB
+====================================================================================
+  import_gymnasium             +27 MB · wall 1170ms · cpu 146% · ctx 602 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10982ms · cpu 92% · ctx 1940 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2925ms · cpu 79% · ctx 1608 · gpu 0%
+  import_rllib                 +149 MB · wall 10509ms · cpu 91% · ctx 3962 · gpu 0%
+  build_policy                 +549 MB · wall 11127ms · cpu 90% · flt 185 · ctx 2168 · rd 12.3 MB · gpu 0%
+  state_disk_read              +3 MB · wall 3ms · cpu 299% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 264% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 34ms · cpu 117% · ctx 10 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 76% · ctx 10 · gpu 0%
+  execution_learn              +218 MB · wall 3696ms · cpu 95% · flt 76 · ctx 56 · rd 8.2 MB · gpu 0%
+
+
+--- T0 learner run 2/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.2470s  peakRSS=1320 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1027ms · cpu 163% · ctx 296 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10371ms · cpu 94% · ctx 968 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2625ms · cpu 83% · ctx 882 · gpu 0%
+  import_rllib                 +149 MB · wall 9321ms · cpu 96% · ctx 1923 · gpu 0%
+  build_policy                 +547 MB · wall 10641ms · cpu 91% · ctx 1607 · gpu 0%
+  state_disk_read              +3 MB · wall 5ms · cpu 408% · ctx 9 · gpu 0%
+  state_deserialize            0 MB · wall 3ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 30ms · cpu 99% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 26ms · cpu 114% · ctx 10 · gpu 0%
+  execution_learn              +217 MB · wall 3592ms · cpu 98% · ctx 15 · gpu 0%
+
+
+--- T0 learner run 3/15 ---
+
+====================================================================================
+T0 learner (cold)  total=40.3889s  peakRSS=1327 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1162ms · cpu 146% · ctx 543 · gpu 0%
+  import_torch_cuda            +331 MB · wall 10950ms · cpu 91% · ctx 1792 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2609ms · cpu 84% · ctx 940 · gpu 0%
+  import_rllib                 +151 MB · wall 10367ms · cpu 91% · ctx 3566 · gpu 0%
+  build_policy                 +549 MB · wall 11099ms · cpu 91% · ctx 1961 · gpu 0%
+  state_disk_read              +2 MB · wall 2ms · cpu 0% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 5ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 34ms · cpu 117% · ctx 11 · gpu 0%
+  batch_load                   +4 MB · wall 29ms · cpu 139% · ctx 10 · gpu 0%
+  execution_learn              +217 MB · wall 3573ms · cpu 98% · ctx 18 · gpu 0%
+
+
+--- T0 learner run 4/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.8390s  peakRSS=1326 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1018ms · cpu 164% · ctx 295 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10372ms · cpu 94% · ctx 991 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2846ms · cpu 82% · ctx 1315 · gpu 0%
+  import_rllib                 +149 MB · wall 9664ms · cpu 96% · ctx 1983 · gpu 0%
+  build_policy                 +549 MB · wall 10743ms · cpu 92% · ctx 1196 · gpu 0%
+  state_disk_read              +2 MB · wall 2ms · cpu 491% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 470% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 32ms · cpu 94% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 27ms · cpu 147% · ctx 11 · gpu 0%
+  execution_learn              +219 MB · wall 3583ms · cpu 98% · ctx 21 · gpu 0%
+
+
+--- T0 learner run 5/15 ---
+
+====================================================================================
+T0 learner (cold)  total=41.0479s  peakRSS=1325 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1152ms · cpu 148% · ctx 545 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10921ms · cpu 92% · ctx 1780 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2629ms · cpu 84% · ctx 940 · gpu 0%
+  import_rllib                 +151 MB · wall 10245ms · cpu 93% · ctx 3513 · gpu 0%
+  build_policy                 +551 MB · wall 11664ms · cpu 88% · ctx 2492 · gpu 0%
+  state_disk_read              +3 MB · wall 4ms · cpu 269% · ctx 9 · gpu 0%
+  state_deserialize            0 MB · wall 5ms · cpu 214% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 35ms · cpu 86% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 28ms · cpu 107% · ctx 10 · gpu 0%
+  execution_learn              +216 MB · wall 3749ms · cpu 98% · ctx 18 · gpu 0%
+
+
+--- T0 learner run 6/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.8086s  peakRSS=1323 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1046ms · cpu 160% · ctx 292 · gpu 0%
+  import_torch_cuda            +328 MB · wall 10464ms · cpu 94% · ctx 957 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 2630ms · cpu 84% · ctx 881 · gpu 0%
+  import_rllib                 +149 MB · wall 9542ms · cpu 98% · ctx 1960 · gpu 0%
+  build_policy                 +550 MB · wall 10771ms · cpu 92% · ctx 1279 · gpu 0%
+  state_disk_read              +2 MB · wall 3ms · cpu 794% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 5ms · cpu 210% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 33ms · cpu 120% · ctx 10 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 115% · ctx 10 · gpu 0%
+  execution_learn              +219 MB · wall 3592ms · cpu 98% · ctx 21 · gpu 0%
+
+
+--- T0 learner run 7/15 ---
+
+====================================================================================
+T0 learner (cold)  total=41.3642s  peakRSS=1322 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1119ms · cpu 151% · ctx 545 · gpu 0%
+  import_torch_cuda            +328 MB · wall 10962ms · cpu 92% · ctx 1811 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2938ms · cpu 78% · ctx 1382 · gpu 0%
+  import_rllib                 +150 MB · wall 11089ms · cpu 86% · ctx 3461 · gpu 0%
+  build_policy                 +546 MB · wall 10924ms · cpu 90% · ctx 1996 · gpu 0%
+  state_disk_read              +3 MB · wall 4ms · cpu 483% · ctx 9 · gpu 0%
+  state_deserialize            0 MB · wall 3ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 35ms · cpu 145% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 26ms · cpu 115% · ctx 10 · gpu 0%
+  execution_learn              +219 MB · wall 3588ms · cpu 98% · ctx 13 · gpu 0%
+
+
+--- T0 learner run 8/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.9941s  peakRSS=1325 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1025ms · cpu 162% · ctx 292 · gpu 0%
+  import_torch_cuda            +328 MB · wall 10414ms · cpu 94% · ctx 954 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2636ms · cpu 84% · ctx 879 · gpu 0%
+  import_rllib                 +151 MB · wall 9731ms · cpu 97% · ctx 2018 · gpu 0%
+  build_policy                 +549 MB · wall 10956ms · cpu 90% · ctx 1628 · gpu 0%
+  state_disk_read              +3 MB · wall 3ms · cpu 371% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 279% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 34ms · cpu 118% · ctx 12 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 77% · ctx 10 · gpu 0%
+  execution_learn              +219 MB · wall 3549ms · cpu 98% · ctx 15 · gpu 0%
+
+
+--- T0 learner run 9/15 ---
+
+====================================================================================
+T0 learner (cold)  total=40.5737s  peakRSS=1328 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1116ms · cpu 151% · ctx 544 · gpu 0%
+  import_torch_cuda            +333 MB · wall 10733ms · cpu 92% · ctx 1779 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2692ms · cpu 82% · ctx 941 · gpu 0%
+  import_rllib                 +151 MB · wall 10097ms · cpu 92% · ctx 3424 · gpu 0%
+  build_policy                 +546 MB · wall 11671ms · cpu 92% · ctx 2086 · gpu 0%
+  state_disk_read              +1 MB · wall 4ms · cpu 239% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 33ms · cpu 120% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 27ms · cpu 75% · ctx 10 · gpu 0%
+  execution_learn              +219 MB · wall 3594ms · cpu 98% · ctx 15 · gpu 0%
+
+
+--- T0 learner run 10/15 ---
+
+====================================================================================
+T0 learner (cold)  total=39.0731s  peakRSS=1323 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1014ms · cpu 165% · ctx 294 · gpu 0%
+  import_torch_cuda            +328 MB · wall 10627ms · cpu 94% · ctx 1024 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2867ms · cpu 80% · ctx 1317 · gpu 0%
+  import_rllib                 +151 MB · wall 9494ms · cpu 97% · ctx 2006 · gpu 0%
+  build_policy                 +546 MB · wall 10821ms · cpu 93% · ctx 1224 · gpu 0%
+  state_disk_read              +3 MB · wall 3ms · cpu 0% · ctx 9 · gpu 0%
+  state_deserialize            0 MB · wall 5ms · cpu 430% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 43ms · cpu 116% · ctx 11 · gpu 0%
+  batch_load                   +4 MB · wall 28ms · cpu 108% · ctx 11 · gpu 0%
+  execution_learn              +220 MB · wall 3600ms · cpu 98% · ctx 20 · gpu 0%
+
+
+--- T0 learner run 11/15 ---
+
+====================================================================================
+T0 learner (cold)  total=41.0952s  peakRSS=1322 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1152ms · cpu 147% · ctx 540 · gpu 0%
+  import_torch_cuda            +329 MB · wall 11115ms · cpu 90% · ctx 1774 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2662ms · cpu 84% · ctx 940 · gpu 0%
+  import_rllib                 +148 MB · wall 10377ms · cpu 92% · ctx 3474 · gpu 0%
+  build_policy                 +546 MB · wall 11532ms · cpu 87% · ctx 2606 · gpu 0%
+  state_disk_read              +3 MB · wall 5ms · cpu 434% · ctx 9 · gpu 0%
+  state_deserialize            0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 32ms · cpu 93% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  execution_learn              +219 MB · wall 3590ms · cpu 98% · ctx 20 · gpu 0%
+
+
+--- T0 learner run 12/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.2996s  peakRSS=1328 MB
+====================================================================================
+  import_gymnasium             +26 MB · wall 1006ms · cpu 165% · ctx 298 · gpu 0%
+  import_torch_cuda            +331 MB · wall 10447ms · cpu 94% · ctx 961 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2641ms · cpu 84% · ctx 878 · gpu 0%
+  import_rllib                 +151 MB · wall 9469ms · cpu 95% · ctx 1980 · gpu 0%
+  build_policy                 +548 MB · wall 10456ms · cpu 92% · ctx 1048 · gpu 0%
+  state_disk_read              +2 MB · wall 3ms · cpu 381% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 267% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 33ms · cpu 90% · ctx 10 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 155% · ctx 10 · gpu 0%
+  execution_learn              +220 MB · wall 3627ms · cpu 98% · ctx 14 · gpu 0%
+
+
+--- T0 learner run 13/15 ---
+
+====================================================================================
+T0 learner (cold)  total=40.5786s  peakRSS=1323 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1148ms · cpu 147% · ctx 542 · gpu 0%
+  import_torch_cuda            +330 MB · wall 10728ms · cpu 91% · ctx 1817 · wr 4 KB · gpu 0%
+  import_ray                   +33 MB · wall 3001ms · cpu 76% · ctx 1377 · gpu 0%
+  import_rllib                 +149 MB · wall 10424ms · cpu 91% · ctx 3552 · gpu 0%
+  build_policy                 +548 MB · wall 11044ms · cpu 88% · ctx 2023 · gpu 0%
+  state_disk_read              +1 MB · wall 4ms · cpu 468% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 253% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 39ms · cpu 104% · ctx 11 · gpu 0%
+  batch_load                   +4 MB · wall 26ms · cpu 114% · ctx 10 · gpu 0%
+  execution_learn              +217 MB · wall 3541ms · cpu 98% · ctx 15 · gpu 0%
+
+
+--- T0 learner run 14/15 ---
+
+====================================================================================
+T0 learner (cold)  total=38.6133s  peakRSS=1326 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1018ms · cpu 163% · ctx 298 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10352ms · cpu 94% · ctx 955 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2602ms · cpu 85% · ctx 881 · gpu 0%
+  import_rllib                 +149 MB · wall 9536ms · cpu 96% · ctx 1946 · gpu 0%
+  build_policy                 +550 MB · wall 10853ms · cpu 90% · ctx 1666 · gpu 0%
+  state_disk_read              +2 MB · wall 3ms · cpu 395% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 4ms · cpu 268% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 34ms · cpu 118% · ctx 11 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 152% · ctx 10 · gpu 0%
+  execution_learn              +221 MB · wall 3588ms · cpu 98% · ctx 19 · gpu 0%
+
+
+--- T0 learner run 15/15 ---
+
+====================================================================================
+T0 learner (cold)  total=40.1666s  peakRSS=1324 MB
+====================================================================================
+  import_gymnasium             +25 MB · wall 1116ms · cpu 142% · ctx 540 · gpu 0%
+  import_torch_cuda            +329 MB · wall 10800ms · cpu 90% · ctx 1780 · wr 4 KB · gpu 0%
+  import_ray                   +32 MB · wall 2672ms · cpu 83% · ctx 937 · gpu 0%
+  import_rllib                 +151 MB · wall 10333ms · cpu 91% · ctx 3558 · gpu 0%
+  build_policy                 +548 MB · wall 10961ms · cpu 90% · ctx 2049 · gpu 0%
+  state_disk_read              +2 MB · wall 2ms · cpu 570% · ctx 9 · gpu 0%
+  state_deserialize            +2 MB · wall 5ms · cpu 200% · ctx 10 · gpu 0%
+  set_state                    0 MB · wall 33ms · cpu 92% · ctx 10 · gpu 0%
+  batch_load                   +4 MB · wall 33ms · cpu 91% · ctx 11 · gpu 0%
+  execution_learn              +217 MB · wall 3592ms · cpu 98% · ctx 20 · gpu 0%
+
+
+====================================================================================
+PHASE T1  (15× rebuild)
+====================================================================================
+
+--- T1 learner run 1/15 ---
+
+====================================================================================
+T1 learner run 1  total=37.9393s  peakRSS=1322 MB
+====================================================================================
+  build_policy                 +1085 MB · wall 33869ms · cpu 96% · ctx 5763 · wr 16 KB · gpu 0%
+  state_load                   +3 MB · wall 10ms · cpu 0% · ctx 10 · gpu 0%
+  set_state                    0 MB · wall 33ms · cpu 121% · ctx 12 · gpu 0%
+  batch_load                   +2 MB · wall 26ms · cpu 115% · ctx 10 · gpu 0%
+  execution_learn              +217 MB · wall 3597ms · cpu 98% · ctx 19 · gpu 0%
+
+--- T1 learner run 2/15 ---
+
+====================================================================================
+T1 learner run 2  total=0.6755s  peakRSS=1329 MB
+====================================================================================
+  build_policy                 +4 MB · wall 165ms · cpu 145% · ctx 20 · wr 4 KB · gpu 0%
+  state_load                   +2 MB · wall 4ms · cpu 245% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   +1 MB · wall 25ms · cpu 79% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 58ms · cpu 86% · ctx 12 · gpu 0%
+
+--- T1 learner run 3/15 ---
+
+====================================================================================
+T1 learner run 3  total=0.7003s  peakRSS=1334 MB
+====================================================================================
+  build_policy                 +2 MB · wall 182ms · cpu 226% · ctx 31 · wr 4 KB · gpu 0%
+  state_load                   +2 MB · wall 4ms · cpu 249% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 110% · ctx 11 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 178% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 106% · ctx 13 · gpu 1%
+
+--- T1 learner run 4/15 ---
+
+====================================================================================
+T1 learner run 4  total=0.7264s  peakRSS=1334 MB
+====================================================================================
+  build_policy                 0 MB · wall 189ms · cpu 217% · ctx 28 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 270% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 28ms · cpu 108% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 24ms · cpu 165% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 58ms · cpu 104% · ctx 14 · gpu 0%
+
+--- T1 learner run 5/15 ---
+
+====================================================================================
+T1 learner run 5  total=0.6700s  peakRSS=1335 MB
+====================================================================================
+  build_policy                 +1 MB · wall 164ms · cpu 158% · ctx 23 · wr 8 KB · gpu 0%
+  state_load                   0 MB · wall 6ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 110% · ctx 11 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 91% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 57ms · cpu 123% · ctx 14 · gpu 0%
+
+--- T1 learner run 6/15 ---
+
+====================================================================================
+T1 learner run 6  total=0.7344s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 215ms · cpu 205% · ctx 32 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 281% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 28ms · cpu 106% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 26ms · cpu 76% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 60ms · cpu 100% · ctx 11 · gpu 0%
+
+--- T1 learner run 7/15 ---
+
+====================================================================================
+T1 learner run 7  total=0.6935s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 192ms · cpu 214% · ctx 34 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 284% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 23ms · cpu 130% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 107% · ctx 11 · gpu 0%
+
+--- T1 learner run 8/15 ---
+
+====================================================================================
+T1 learner run 8  total=0.6842s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 191ms · cpu 215% · ctx 30 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 281% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 74% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 91% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 63ms · cpu 95% · ctx 11 · gpu 1%
+
+--- T1 learner run 9/15 ---
+
+====================================================================================
+T1 learner run 9  total=0.7171s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 194ms · cpu 216% · ctx 34 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 276% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 31ms · cpu 128% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 137% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 60ms · cpu 117% · ctx 11 · gpu 0%
+
+--- T1 learner run 10/15 ---
+
+====================================================================================
+T1 learner run 10  total=0.7472s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 213ms · cpu 206% · ctx 33 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 28ms · cpu 108% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 31ms · cpu 127% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 65ms · cpu 93% · ctx 11 · gpu 0%
+
+--- T1 learner run 11/15 ---
+
+====================================================================================
+T1 learner run 11  total=0.7071s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 183ms · cpu 224% · ctx 28 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 3ms · cpu 286% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 74% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 24ms · cpu 83% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 107% · ctx 11 · gpu 0%
+
+--- T1 learner run 12/15 ---
+
+====================================================================================
+T1 learner run 12  total=0.6908s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 181ms · cpu 226% · ctx 25 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 138% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 107% · ctx 11 · gpu 0%
+
+--- T1 learner run 13/15 ---
+
+====================================================================================
+T1 learner run 13  total=0.6843s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 165ms · cpu 188% · ctx 24 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 92% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 57ms · cpu 88% · ctx 12 · gpu 0%
+
+--- T1 learner run 14/15 ---
+
+====================================================================================
+T1 learner run 14  total=0.7321s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 152ms · cpu 144% · ctx 22 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 23ms · cpu 89% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 103ms · cpu 97% · ctx 13 · gpu 0%
+
+--- T1 learner run 15/15 ---
+
+====================================================================================
+T1 learner run 15  total=0.6853s  peakRSS=1336 MB
+====================================================================================
+  build_policy                 0 MB · wall 197ms · cpu 214% · ctx 35 · wr 4 KB · gpu 0%
+  state_load                   0 MB · wall 4ms · cpu 225% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 28ms · cpu 107% · ctx 11 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 92% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 70ms · cpu 100% · ctx 14 · gpu 0%
+
+====================================================================================
+PHASE T2  (15× reuse, reload state)
+====================================================================================
+
+--- T2 learner run 1/15 ---
+
+====================================================================================
+T2 learner run 1  total=0.4438s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 512% · ctx 9 · gpu 0%
+  set_state                    0 MB · wall 36ms · cpu 84% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 23ms · cpu 132% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 66ms · cpu 106% · ctx 11 · gpu 1%
+
+--- T2 learner run 2/15 ---
+
+====================================================================================
+T2 learner run 2  total=0.3984s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 0% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 28ms · cpu 109% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 139% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 60ms · cpu 116% · ctx 11 · gpu 1%
+
+--- T2 learner run 3/15 ---
+
+====================================================================================
+T2 learner run 3  total=0.3925s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 0% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 28ms · cpu 108% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 20ms · cpu 147% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 89% · ctx 11 · gpu 1%
+
+--- T2 learner run 4/15 ---
+
+====================================================================================
+T2 learner run 4  total=0.4063s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 570% · ctx 10 · gpu 1%
+  set_state                    0 MB · wall 28ms · cpu 108% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 24ms · cpu 124% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 89% · ctx 11 · gpu 1%
+
+--- T2 learner run 5/15 ---
+
+====================================================================================
+T2 learner run 5  total=0.4071s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 6ms · cpu 170% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 28ms · cpu 144% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 142% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 71ms · cpu 98% · ctx 13 · gpu 1%
+
+--- T2 learner run 6/15 ---
+
+====================================================================================
+T2 learner run 6  total=0.4069s  peakRSS=1336 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 237% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 32ms · cpu 94% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 136% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 60ms · cpu 100% · ctx 11 · gpu 1%
+
+--- T2 learner run 7/15 ---
+
+====================================================================================
+T2 learner run 7  total=0.3754s  peakRSS=1338 MB
+====================================================================================
+  state_load                   +2 MB · wall 4ms · cpu 246% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 146% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 143% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 1%
+
+--- T2 learner run 8/15 ---
+
+====================================================================================
+T2 learner run 8  total=0.3971s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 561% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 111% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 139% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 1%
+
+--- T2 learner run 9/15 ---
+
+====================================================================================
+T2 learner run 9  total=0.3969s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 290% · ctx 10 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 147% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 94% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 69ms · cpu 101% · ctx 11 · gpu 1%
+
+--- T2 learner run 10/15 ---
+
+====================================================================================
+T2 learner run 10  total=0.3937s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 267% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 30ms · cpu 100% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 142% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 57ms · cpu 106% · ctx 11 · gpu 1%
+
+--- T2 learner run 11/15 ---
+
+====================================================================================
+T2 learner run 11  total=0.4022s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 289% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 146% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 144% · ctx 9 · gpu 0%
+  execution_learn              0 MB · wall 59ms · cpu 118% · ctx 11 · gpu 1%
+
+--- T2 learner run 12/15 ---
+
+====================================================================================
+T2 learner run 12  total=0.4045s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 0% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 110% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 93% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 56ms · cpu 125% · ctx 11 · gpu 1%
+
+--- T2 learner run 13/15 ---
+
+====================================================================================
+T2 learner run 13  total=0.4120s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 292% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 35ms · cpu 115% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 22ms · cpu 89% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 57ms · cpu 105% · ctx 11 · gpu 1%
+
+--- T2 learner run 14/15 ---
+
+====================================================================================
+T2 learner run 14  total=0.4108s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 4ms · cpu 268% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 27ms · cpu 110% · ctx 10 · gpu 0%
+  batch_load                   0 MB · wall 21ms · cpu 146% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 91% · ctx 11 · gpu 1%
+
+--- T2 learner run 15/15 ---
+
+====================================================================================
+T2 learner run 15  total=0.3997s  peakRSS=1338 MB
+====================================================================================
+  state_load                   0 MB · wall 3ms · cpu 290% · ctx 9 · gpu 1%
+  set_state                    0 MB · wall 37ms · cpu 81% · ctx 11 · gpu 0%
+  batch_load                   0 MB · wall 25ms · cpu 121% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 59ms · cpu 118% · ctx 11 · gpu 1%
+
+====================================================================================
+PHASE T3  (15× exec only)
+====================================================================================
+
+--- T3 learner run 1/15 ---
+
+====================================================================================
+T3 learner run 1  total=0.1674s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 48% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 91% · ctx 11 · gpu 0%
+
+--- T3 learner run 2/15 ---
+
+====================================================================================
+T3 learner run 2  total=0.1636s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 20ms · cpu 98% · ctx 11 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 0%
+
+--- T3 learner run 3/15 ---
+
+====================================================================================
+T3 learner run 3  total=0.1685s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 94% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 62ms · cpu 97% · ctx 13 · gpu 1%
+
+--- T3 learner run 4/15 ---
+
+====================================================================================
+T3 learner run 4  total=0.1689s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 20ms · cpu 98% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 59ms · cpu 101% · ctx 11 · gpu 0%
+
+--- T3 learner run 5/15 ---
+
+====================================================================================
+T3 learner run 5  total=0.1603s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 97% · ctx 11 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 1%
+
+--- T3 learner run 6/15 ---
+
+====================================================================================
+T3 learner run 6  total=0.1878s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 20ms · cpu 99% · ctx 10 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 127% · ctx 11 · gpu 0%
+
+--- T3 learner run 7/15 ---
+
+====================================================================================
+T3 learner run 7  total=0.1891s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 144% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 110% · ctx 11 · gpu 0%
+
+--- T3 learner run 8/15 ---
+
+====================================================================================
+T3 learner run 8  total=0.1847s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 22ms · cpu 135% · ctx 11 · gpu 1%
+  execution_learn              0 MB · wall 57ms · cpu 106% · ctx 11 · gpu 1%
+
+--- T3 learner run 9/15 ---
+
+====================================================================================
+T3 learner run 9  total=0.1727s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 140% · ctx 11 · gpu 0%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 0%
+
+--- T3 learner run 10/15 ---
+
+====================================================================================
+T3 learner run 10  total=0.1613s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 143% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 110% · ctx 11 · gpu 0%
+
+--- T3 learner run 11/15 ---
+
+====================================================================================
+T3 learner run 11  total=0.1652s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 95% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 59ms · cpu 102% · ctx 11 · gpu 1%
+
+--- T3 learner run 12/15 ---
+
+====================================================================================
+T3 learner run 12  total=0.1759s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 143% · ctx 11 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 11 · gpu 0%
+
+--- T3 learner run 13/15 ---
+
+====================================================================================
+T3 learner run 13  total=0.1693s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 95% · ctx 11 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 109% · ctx 12 · gpu 0%
+
+--- T3 learner run 14/15 ---
+
+====================================================================================
+T3 learner run 14  total=0.1673s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 94% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 55ms · cpu 90% · ctx 13 · gpu 1%
+
+--- T3 learner run 15/15 ---
+
+====================================================================================
+T3 learner run 15  total=0.1823s  peakRSS=1338 MB
+====================================================================================
+  batch_load                   0 MB · wall 21ms · cpu 94% · ctx 10 · gpu 1%
+  execution_learn              0 MB · wall 60ms · cpu 100% · ctx 11 · gpu 0%
+
+
+####################################################################################
+# SUMMARY · role=learner · 15 runs/tier
+####################################################################################
+
+--- T0 learner (N=15) ---
+  total_wall_s : 39.81 ± 1.134 (min 38.25, max 41.36)
+  peak_rss_mb  : 1324 ± 2.288 (min 1320, max 1328)
+  per-phase wall_ms:
+    import_gymnasium           1086 ± 64.4 (min 1006, max 1170)
+    import_torch_cuda          1.068e+04 ± 264.9 (min 1.035e+04, max 1.112e+04)
+    import_ray                 2732 ± 140.3 (min 2602, max 3001)
+    import_rllib               1.001e+04 ± 513.3 (min 9321, max 1.109e+04)
+    build_policy               1.102e+04 ± 358.9 (min 1.046e+04, max 1.167e+04)
+    state_disk_read            3.256 ± 1.015 (min 1.754, max 4.9)
+    state_deserialize          4.106 ± 0.6514 (min 2.751, max 5.022)
+    set_state                  34.29 ± 2.985 (min 30.46, max 42.95)
+    batch_load                 27.18 ± 1.859 (min 25.78, max 33.14)
+    execution_learn            3604 ± 53.13 (min 3541, max 3749)
+
+--- T1 learner (N=15) ---
+  total_wall_s : 3.186 ± 9.614 (min 0.67, max 37.94)
+  peak_rss_mb  : 1334 ± 3.934 (min 1322, max 1336)
+  per-phase wall_ms:
+    build_policy               2430 ± 8697 (min 152.4, max 3.387e+04)
+    state_load                 4.297 ± 1.64 (min 3.5, max 9.842)
+    set_state                  27.96 ± 1.791 (min 26.93, max 32.99)
+    batch_load                 23.77 ± 2.663 (min 21.68, max 31.47)
+    execution_learn            298.2 ± 912.8 (min 56.04, max 3597)
+
+--- T2 learner (N=15) ---
+  total_wall_s : 0.4032 ± 0.01443 (min 0.3754, max 0.4438)
+  peak_rss_mb  : 1337 ± 1.014 (min 1336, max 1338)
+  per-phase wall_ms:
+    state_load                 3.795 ± 0.6306 (min 3.429, max 5.893)
+    set_state                  29.61 ± 3.531 (min 27.12, max 37.13)
+    batch_load                 21.8 ± 1.253 (min 20.4, max 24.76)
+    execution_learn            59.46 ± 5.228 (min 54.96, max 71.08)
+
+--- T3 learner (N=15) ---
+  total_wall_s : 0.1723 ± 0.009501 (min 0.1603, max 0.1891)
+  peak_rss_mb  : 1338 ± 0 (min 1338, max 1338)
+  per-phase wall_ms:
+    batch_load                 20.98 ± 0.5047 (min 20.25, max 22.28)
+    execution_learn            56.46 ± 2.426 (min 54.69, max 62.17)
+
+[wrote] /tmp/unified_learner_6335834.json
+
+====================================================================================
+DONE
+====================================================================================
+Done: Sat Apr 25 08:18:34 AM EDT 2026
