@@ -95,6 +95,12 @@ class ServerlessLearner:
             )
         )
 
+        # ray 2.8 defaults to the new RLModule API which expects policies to
+        # be constructed via Algorithm with a policy_id. We instantiate Policy
+        # directly (no RolloutWorker / Algorithm), so we must opt out.
+        if hasattr(learner_config, "_enable_new_api_stack"):
+            learner_config._enable_new_api_stack = False
+
         self.policy = policy_cls(
             env.observation_space,
             env.action_space,
