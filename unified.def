@@ -38,6 +38,12 @@ From: python:3.10-slim-bookworm
         libxrandr2 libxinerama1 libxcursor1 libxi6 \
         ca-certificates curl
     rm -rf /var/lib/apt/lists/*
+
+    # Pin torch to the exact wheel the cluster uses; default pip would
+    # pull a +cpu or newer +cu13x build that won't run on V100 / A100.
+    pip install --no-cache-dir \
+        torch==2.3.1 torchvision==0.18.1 \
+        --index-url https://download.pytorch.org/whl/cu121
     pip install --no-cache-dir -r /opt/unified/requirements.txt
 
     # Validate both construction paths (matches Dockerfile's RUN).

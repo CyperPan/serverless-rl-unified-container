@@ -15,8 +15,12 @@ RUN yum -y install \
     && yum clean all
 
 # ── Python deps (union of actor + learner; actor's set was already a superset) ──
+# torch goes separately from the +cu121 wheel index.
 COPY requirements.txt ${LAMBDA_TASK_ROOT}
-RUN pip install --no-cache-dir -r ${LAMBDA_TASK_ROOT}/requirements.txt \
+RUN pip install --no-cache-dir \
+        torch==2.3.1 torchvision==0.18.1 \
+        --index-url https://download.pytorch.org/whl/cu121 \
+    && pip install --no-cache-dir -r ${LAMBDA_TASK_ROOT}/requirements.txt \
     && rm ${LAMBDA_TASK_ROOT}/requirements.txt
 
 # ── MuJoCo native libs (kept for Hopper-v3 / mujoco-py path) ─────────

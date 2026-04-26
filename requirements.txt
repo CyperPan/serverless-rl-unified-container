@@ -1,8 +1,11 @@
-torch
-gymnasium==0.28.1
-gymnasium[atari,accept-rom-license]==0.28.1
-gymnasium[mujoco]==0.28.1
-ray[rllib] @ https://s3-us-west-2.amazonaws.com/ray-wheels/master/705aae1bb84ec341d0174f59396fac579595dc12/ray-3.0.0.dev0-cp310-cp310-manylinux2014_x86_64.whl
-mujoco
+# Pinned to match the cluster's working nitro_env (verified 2026-04-26).
+# torch + torchvision are installed separately by Dockerfile/unified.def with
+# the CUDA 12.1 wheel index — pip's default index doesn't carry +cu121 builds.
+gymnasium>=1.0
+gymnasium[atari,accept-rom-license]>=1.0
+gymnasium[mujoco]>=1.0
+ray[rllib]==2.8.0
+mujoco>=3.0
 pygame
 redis
+numpy<2
