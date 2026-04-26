@@ -1,0 +1,69 @@
+# Apptainer / Singularity definition — unified actor + learner.
+#
+# Mirrors the Dockerfile but targets HPC clusters where Docker / podman
+# are unavailable. Build on the cluster (or anywhere with apptainer):
+#
+#   apptainer build --fakeroot unified.sif unified.def
+#
+# (--fakeroot uses /etc/subuid mapping; if your site doesn't allow it,
+# build a sandbox first then convert: `apptainer build --sandbox build/
+# unified.def && apptainer build unified.sif build/`.)
+#
+# Run with GPU and Redis on the host:
+#
+#   apptainer run --nv \
+#     --env REDIS_HOST=$(hostname) --env REDIS_PORT=6379 \
+#     --env ROLE=actor unified.sif
+
+Bootstrap: docker
+From: public.ecr.aws/lambda/python:3.10
+
+%files
+    requirements.txt    /opt/unified/requirements.txt
+    config.py           /opt/unified/config.py
+    serverless_actor.py /opt/unified/serverless_actor.py
+    serverless_learner.py /opt/unified/serverless_learner.py
+    handler.py          /opt/unified/handler.py
+    pre_compile.py      /opt/unified/pre_compile.py
+
+%post
+    set -eux
+    yum -y install \
+        mesa-libOSMesa-devel.x86_64 \
+        mesa-libGL-devel.x86_64 \
+        patchelf \
+        gcc \
+        && yum clean all
+    pip install --no-cache-dir -r /opt/unified/requirements.txt
+
+    # Validate both construction paths (matches Dockerfile's RUN).
+    cd /opt/unified && python3 pre_compile.py
+
+%environment
+    export LAMBDA_TASK_ROOT=/opt/unified
+    export PYTHONPATH=/opt/unified:$PYTHONPATH
+
+%runscript
+    # Default entrypoint: spawn a tiny Lambda RIE-equivalent.
+    # Most use cases will instead `apptainer exec ... python handler_cli.py`.
+    cd /opt/unified
+    exec python -c "
+import os, json, sys, types
+import handler
+role = os.environ.get('ROLE', 'actor')
+event = {'role': role}
+if role == 'learner':
+    event['batch_id'] = os.environ.get('BATCH_ID', 'seed')
+ctx = types.SimpleNamespace(aws_request_id='apptainer-run')
+result = handler.handler(event, ctx)
+print(json.dumps(result, indent=2, default=str))
+"
+
+%labels
+    Maintainer CyperPan
+    Description Unified PPO actor + learner serverless container — apptainer build for HPC
+
+%help
+    Single image, two roles. Set ROLE=actor or ROLE=learner.
+    Requires REDIS_HOST / REDIS_PORT env at runtime.
+    Use --nv for GPU access on V100 / A100.
