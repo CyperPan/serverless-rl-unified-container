@@ -1,13 +1,15 @@
 # Apptainer / Singularity definition — unified actor + learner.
 #
-# Mirrors the Dockerfile but targets HPC clusters where Docker / podman
-# are unavailable. Build on the cluster (or anywhere with apptainer):
+# Mirrors the Dockerfile semantically but uses python:3.10-slim as the
+# base because the Lambda-base image (public.ecr.aws/lambda/python:3.10)
+# strips so much userland (`getopt`, `which`, etc.) that apptainer's
+# fakeroot wrapper can't run %post inside it. The Lambda Dockerfile
+# stays as-is for AWS deployment; this .def is for HPC clusters where
+# Docker / podman are unavailable.
+#
+# Build on the cluster (or anywhere with apptainer):
 #
 #   apptainer build --fakeroot unified.sif unified.def
-#
-# (--fakeroot uses /etc/subuid mapping; if your site doesn't allow it,
-# build a sandbox first then convert: `apptainer build --sandbox build/
-# unified.def && apptainer build unified.sif build/`.)
 #
 # Run with GPU and Redis on the host:
 #
@@ -16,7 +18,7 @@
 #     --env ROLE=actor unified.sif
 
 Bootstrap: docker
-From: public.ecr.aws/lambda/python:3.10
+From: python:3.10-slim-bookworm
 
 %files
     requirements.txt    /opt/unified/requirements.txt
@@ -28,12 +30,14 @@ From: public.ecr.aws/lambda/python:3.10
 
 %post
     set -eux
-    yum -y install \
-        mesa-libOSMesa-devel.x86_64 \
-        mesa-libGL-devel.x86_64 \
-        patchelf \
-        gcc \
-        && yum clean all
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        gcc g++ patchelf \
+        libosmesa6-dev libgl1-mesa-dev \
+        libglew-dev libglfw3-dev \
+        libxrandr2 libxinerama1 libxcursor1 libxi6 \
+        ca-certificates curl
+    rm -rf /var/lib/apt/lists/*
     pip install --no-cache-dir -r /opt/unified/requirements.txt
 
     # Validate both construction paths (matches Dockerfile's RUN).
