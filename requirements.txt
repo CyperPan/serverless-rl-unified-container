@@ -1,11 +1,16 @@
-# Pinned to match the cluster's working nitro_env (verified 2026-04-26).
-# torch + torchvision are installed separately by Dockerfile/unified.def with
-# the CUDA 12.1 wheel index — pip's default index doesn't carry +cu121 builds.
-gymnasium>=1.0
-gymnasium[atari,accept-rom-license]>=1.0
-gymnasium[mujoco]>=1.0
+# ray 2.8 hard-pins gymnasium==0.28.1, so we don't fight it. The cluster's
+# nitro_env was later upgraded to gymnasium 1.2.3 + mujoco 3.6 manually
+# (bypassing pip's resolver), but a clean install must match ray's pin.
+#
+# gymnasium 0.28.1 ships Hopper XML in old global-coords format that mujoco
+# 3.x rejects, so pin mujoco to the last 2.x release.
+#
+# torch + torchvision installed separately by Dockerfile/.def from cu121 index.
+gymnasium==0.28.1
+gymnasium[atari,accept-rom-license]==0.28.1
+gymnasium[mujoco]==0.28.1
 ray[rllib]==2.8.0
-mujoco>=3.0
+mujoco==2.3.7
 pygame
 redis
 numpy<2
