@@ -18,7 +18,7 @@
 #SBATCH --error=%x_%j.err
 
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "${SLURM_SUBMIT_DIR:-$(dirname "$0")}"
 
 if [[ ! -f unified.sif ]]; then
     echo "ERROR: unified.sif missing. Run build_apptainer.sbatch first." >&2

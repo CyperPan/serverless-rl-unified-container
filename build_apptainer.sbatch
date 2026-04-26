@@ -19,7 +19,7 @@
 #SBATCH --error=%x_%j.err
 
 set -euo pipefail
-cd "$(dirname "$0")"
+cd "${SLURM_SUBMIT_DIR:-$(dirname "$0")}"
 
 # Apptainer needs scratch for build cache and intermediate layers.
 export APPTAINER_CACHEDIR=/scratch/$USER/apptainer-cache
