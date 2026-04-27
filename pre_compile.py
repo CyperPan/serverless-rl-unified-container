@@ -68,6 +68,18 @@ def main() -> None:
     t2 = time.perf_counter()
     _print(f"[pre_compile] actor.sample done ({t2 - t1:.1f}s, batch rows={len(batch)})")
 
+    # Diagnostic: can the actor's policy learn_on_batch? If yes,
+    # the learner can reuse it instead of building a fresh one.
+    _print(f"[pre_compile] DIAG: testing actor.policy.learn_on_batch ...")
+    try:
+        actor.worker.get_policy().learn_on_batch(batch)
+        _print(f"[pre_compile] DIAG: actor.policy.learn_on_batch WORKS ✓")
+    except Exception as e:
+        _print(f"[pre_compile] DIAG: actor.policy.learn_on_batch FAILED: "
+               f"{type(e).__name__}: {e}")
+    _print(f"[pre_compile] DIAG: actor.policy has dist_class? "
+           f"{getattr(actor.worker.get_policy(), 'dist_class', 'MISSING')}")
+
     _print(f"[pre_compile] building learner ...")
     learner = ServerlessLearner(
         redis_host=redis_host,
