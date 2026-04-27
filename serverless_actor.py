@@ -72,6 +72,19 @@ class ServerlessActor:
             )
         )
 
+        # Force LEGACY model stack so weights are interchangeable with the
+        # host's seeded model_weights (host nitro_env uses gymnasium 1.2.3
+        # which produces legacy state_dict; container has gymnasium 0.28.1
+        # which would default to RLModule API and produce a different shape).
+        if hasattr(sampler_config, "experimental"):
+            try:
+                sampler_config = sampler_config.experimental(
+                    _enable_new_api_stack=False)
+            except TypeError:
+                pass
+        if hasattr(sampler_config, "_enable_new_api_stack"):
+            sampler_config._enable_new_api_stack = False
+
         if algo_name == "ppo":
             policy_cls = PPOTorchPolicy
         elif algo_name == "appo":

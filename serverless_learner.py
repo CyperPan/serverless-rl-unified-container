@@ -96,14 +96,20 @@ class ServerlessLearner:
             )
         )
 
-        # Construct the Policy through RolloutWorker (same path as
-        # ServerlessActor) instead of instantiating PPOTorchPolicy
-        # directly. RolloutWorker injects all the config bits that
-        # ray 2.8's TorchPolicyV2 expects (policy_id, marl_module_spec,
-        # exploration init), which the direct-construction path leaves
-        # in an inconsistent state. The unused sampler costs ~100 ms
-        # at build time but makes the learner robust against ray's
-        # internal config plumbing.
+        # Force LEGACY model stack to match the actor's state_dict shape
+        # (see serverless_actor.py for context).
+        if hasattr(learner_config, "experimental"):
+            try:
+                learner_config = learner_config.experimental(
+                    _enable_new_api_stack=False)
+            except TypeError:
+                pass
+        if hasattr(learner_config, "_enable_new_api_stack"):
+            learner_config._enable_new_api_stack = False
+
+        # Construct via RolloutWorker (same path as ServerlessActor); see
+        # serverless_actor.py for why direct PPOTorchPolicy construction
+        # fails on ray 2.8.
         self.worker = RolloutWorker(
             env_creator=lambda _: env,
             config=learner_config,
