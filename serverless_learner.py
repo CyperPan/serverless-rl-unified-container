@@ -95,16 +95,30 @@ class ServerlessLearner:
             )
         )
 
-        # ray 2.8 defaults to the new RLModule API which expects policies to
-        # be constructed via Algorithm with a policy_id. We instantiate Policy
-        # directly (no RolloutWorker / Algorithm), so we must opt out.
+        # ray 2.8: PPOConfig defaults to the new RLModule API, and
+        # TorchPolicyV2.__init__ unconditionally calls self.make_rl_module()
+        # which requires `policy_id` to be set. RolloutWorker injects this
+        # automatically; we don't go through RolloutWorker here, so we must
+        # both (a) opt out of the new API stack and (b) inject policy_id
+        # into the config dict (the flag alone isn't enough — the check is
+        # on the dict, not the config object).
+        if hasattr(learner_config, "experimental"):
+            try:
+                learner_config = learner_config.experimental(
+                    _enable_new_api_stack=False)
+            except TypeError:
+                pass
         if hasattr(learner_config, "_enable_new_api_stack"):
             learner_config._enable_new_api_stack = False
+
+        from ray.rllib.policy.sample_batch import DEFAULT_POLICY_ID
+        config_dict = learner_config.to_dict()
+        config_dict.setdefault("policy_id", DEFAULT_POLICY_ID)
 
         self.policy = policy_cls(
             env.observation_space,
             env.action_space,
-            learner_config.to_dict(),
+            config_dict,
         )
 
     # ---- Redis I/O (mirrors ServerlessActor) -------------------------- #
