@@ -16,8 +16,11 @@
 set -euo pipefail
 cd "${SLURM_SUBMIT_DIR:-$(dirname "$0")}"
 
-if [[ ! -f unified.sif ]]; then
-    echo "ERROR: unified.sif missing. Run sandbox_to_sif.sbatch first." >&2
+# Skip SIF (slow squashfs compression) — apptainer can run the sandbox
+# directory directly. SIF is for distribution; for testing the sandbox is faster.
+TARGET=/scratch/$USER/dev-sandbox
+if [[ ! -d "$TARGET" ]]; then
+    echo "ERROR: sandbox missing at $TARGET. Run dev_iter.sbatch first." >&2
     exit 1
 fi
 
@@ -52,7 +55,7 @@ apptainer run --nv --cleanenv \
     --env "NUM_GPUS_LEARNER=1" \
     --env "UNIFIED_PREWARM=1" \
     --env "UNIFIED_WARMUP_LEARN=0" \
-    unified.sif 2>&1 | tail -25
+    "$TARGET" 2>&1 | tail -25
 t1=$(date +%s.%N)
 echo "[t0_actor wall: $(echo "$t1 - $t0" | bc)s]"
 
@@ -71,7 +74,7 @@ apptainer run --nv --cleanenv \
     --env "NUM_GPUS_LEARNER=1" \
     --env "UNIFIED_PREWARM=1" \
     --env "UNIFIED_WARMUP_LEARN=0" \
-    unified.sif 2>&1 | tail -25
+    "$TARGET" 2>&1 | tail -25
 t1=$(date +%s.%N)
 echo "[t0_learner wall: $(echo "$t1 - $t0" | bc)s]"
 
