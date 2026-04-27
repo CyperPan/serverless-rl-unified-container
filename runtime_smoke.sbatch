@@ -66,7 +66,7 @@ t1=$(date +%s.%N)
 echo "[t0_actor wall: $(echo "$t1 - $t0" | bc)s]"
 
 echo
-echo "===== T0 (cold) learner ====="
+echo "===== T0 (cold) learner — NUM_GPUS=0 ====="
 t0=$(date +%s.%N)
 apptainer exec --nv --cleanenv \
     --env "REDIS_HOST=$REDIS_HOST" \
@@ -77,10 +77,10 @@ apptainer exec --nv --cleanenv \
     --env "ENV_NAME=Hopper-v4" \
     --env "ROLLOUT_FRAGMENT_LENGTH=512" \
     --env "TRAIN_BATCH_SIZE=4096" \
-    --env "NUM_GPUS_LEARNER=1" \
+    --env "NUM_GPUS_LEARNER=0" \
     --env "UNIFIED_PREWARM=1" \
     --env "UNIFIED_WARMUP_LEARN=0" \
-    "$TARGET" python /opt/unified/handler_runner.py 2>&1 | tail -30
+    "$TARGET" python /opt/unified/handler_runner.py 2>&1 | tail -40
 t1=$(date +%s.%N)
 echo "[t0_learner wall: $(echo "$t1 - $t0" | bc)s]"
 
