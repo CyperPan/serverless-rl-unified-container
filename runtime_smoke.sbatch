@@ -37,9 +37,15 @@ redis-server --daemonize yes --port "$REDIS_PORT" --protected-mode no \
 sleep 2
 redis-cli -p "$REDIS_PORT" ping
 
-echo "[$(date)] seeding redis (host CPU) ..."
-REDIS_HOST="$REDIS_HOST" REDIS_PORT="$REDIS_PORT" \
-    python local_4060ti/seed_redis.py 2>&1 | tail -10
+echo "[$(date)] seeding redis from INSIDE container (matches container's API stack) ..."
+apptainer exec --nv --cleanenv \
+    --env "REDIS_HOST=$REDIS_HOST" \
+    --env "REDIS_PORT=$REDIS_PORT" \
+    --env "ALGO_NAME=ppo" \
+    --env "ENV_NAME=Hopper-v4" \
+    --env "ROLLOUT_FRAGMENT_LENGTH=512" \
+    --env "TRAIN_BATCH_SIZE=4096" \
+    "$TARGET" python /opt/unified/seed_inside.py 2>&1 | tail -10
 
 echo
 echo "===== T0 (cold) actor ====="
