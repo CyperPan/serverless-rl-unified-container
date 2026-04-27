@@ -96,26 +96,16 @@ class ServerlessLearner:
             )
         )
 
-        # Force LEGACY model stack to match the actor's state_dict shape
-        # (see serverless_actor.py for context).
-        if hasattr(learner_config, "experimental"):
-            try:
-                learner_config = learner_config.experimental(
-                    _enable_new_api_stack=False)
-            except TypeError:
-                pass
+        # Mirror profile_unified.py (cluster-validated). Direct
+        # PPOTorchPolicy construction with _enable_new_api_stack=False is
+        # the path that produces a working policy with proper dist_class.
         if hasattr(learner_config, "_enable_new_api_stack"):
             learner_config._enable_new_api_stack = False
-
-        # Construct via RolloutWorker (same path as ServerlessActor); see
-        # serverless_actor.py for why direct PPOTorchPolicy construction
-        # fails on ray 2.8.
-        self.worker = RolloutWorker(
-            env_creator=lambda _: env,
-            config=learner_config,
-            default_policy_class=policy_cls,
+        self.policy = policy_cls(
+            env.observation_space,
+            env.action_space,
+            learner_config.to_dict(),
         )
-        self.policy = self.worker.get_policy()
 
     # ---- Redis I/O (mirrors ServerlessActor) -------------------------- #
 
