@@ -44,7 +44,7 @@ REDIS_HOST="$REDIS_HOST" REDIS_PORT="$REDIS_PORT" \
 echo
 echo "===== T0 (cold) actor ====="
 t0=$(date +%s.%N)
-apptainer run --nv --cleanenv \
+apptainer exec --nv --cleanenv \
     --env "REDIS_HOST=$REDIS_HOST" \
     --env "REDIS_PORT=$REDIS_PORT" \
     --env "ROLE=actor" \
@@ -55,14 +55,14 @@ apptainer run --nv --cleanenv \
     --env "NUM_GPUS_LEARNER=1" \
     --env "UNIFIED_PREWARM=1" \
     --env "UNIFIED_WARMUP_LEARN=0" \
-    "$TARGET" 2>&1 | tail -25
+    "$TARGET" python /opt/unified/handler_runner.py 2>&1 | tail -30
 t1=$(date +%s.%N)
 echo "[t0_actor wall: $(echo "$t1 - $t0" | bc)s]"
 
 echo
 echo "===== T0 (cold) learner ====="
 t0=$(date +%s.%N)
-apptainer run --nv --cleanenv \
+apptainer exec --nv --cleanenv \
     --env "REDIS_HOST=$REDIS_HOST" \
     --env "REDIS_PORT=$REDIS_PORT" \
     --env "ROLE=learner" \
@@ -74,7 +74,7 @@ apptainer run --nv --cleanenv \
     --env "NUM_GPUS_LEARNER=1" \
     --env "UNIFIED_PREWARM=1" \
     --env "UNIFIED_WARMUP_LEARN=0" \
-    "$TARGET" 2>&1 | tail -25
+    "$TARGET" python /opt/unified/handler_runner.py 2>&1 | tail -30
 t1=$(date +%s.%N)
 echo "[t0_learner wall: $(echo "$t1 - $t0" | bc)s]"
 
