@@ -84,10 +84,12 @@ def main() -> None:
     t3 = time.perf_counter()
     _print(f"[pre_compile] learner built ({t3 - t2:.1f}s)")
 
-    _print(f"[pre_compile] warmup learn (CPU; just to compile graph) ...")
-    learner.warmup_with_batch(batch)
-    t4 = time.perf_counter()
-    _print(f"[pre_compile] warmup learn done ({t4 - t3:.1f}s)")
+    # Note: skipping warmup_with_batch here. ray 2.8's CPU-tower learn
+    # path has a NoneType dist_class issue at build time that doesn't
+    # show up at runtime under --nv. Build only validates construction
+    # of both roles; first real learn happens on the GPU at runtime.
+    _print(f"[pre_compile] skipping warmup learn (deferred to runtime) ...")
+    t4 = t3
 
     _print(f"[pre_compile] DONE — total {t4 - t0:.1f}s, "
            f"both construction paths validated.")
