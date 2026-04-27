@@ -95,13 +95,14 @@ class ServerlessLearner:
             )
         )
 
-        # ray 2.8: PPOConfig defaults to the new RLModule API, and
-        # TorchPolicyV2.__init__ unconditionally calls self.make_rl_module()
-        # which requires `policy_id` to be set. RolloutWorker injects this
-        # automatically; we don't go through RolloutWorker here, so we must
-        # both (a) opt out of the new API stack and (b) inject policy_id
-        # into the config dict (the flag alone isn't enough — the check is
-        # on the dict, not the config object).
+        # ray 2.8 RLModule API workaround. Even with experimental(
+        # _enable_new_api_stack=False) and the underscore-attribute set
+        # on the AlgorithmConfig, `to_dict()` may still emit the new-API
+        # bits (the underscore attribute doesn't always serialize). Force
+        # the dict shape that pre-RLModule TorchPolicyV2 expects:
+        #   - _enable_new_api_stack=False explicitly in the dict
+        #   - policy_id set to DEFAULT_POLICY_ID
+        #   - __marl_module_spec removed so make_rl_module() bails early
         if hasattr(learner_config, "experimental"):
             try:
                 learner_config = learner_config.experimental(
@@ -113,7 +114,10 @@ class ServerlessLearner:
 
         from ray.rllib.policy.sample_batch import DEFAULT_POLICY_ID
         config_dict = learner_config.to_dict()
-        config_dict.setdefault("policy_id", DEFAULT_POLICY_ID)
+        config_dict["_enable_new_api_stack"] = False
+        config_dict["_enable_rl_module_api"] = False
+        config_dict["policy_id"] = DEFAULT_POLICY_ID
+        config_dict.pop("__marl_module_spec", None)
 
         self.policy = policy_cls(
             env.observation_space,
