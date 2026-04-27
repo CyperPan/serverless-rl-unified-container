@@ -65,7 +65,7 @@ fi
 
 # Copy fresh source on every iteration.
 echo "[$(date)] syncing source files into /opt/unified ..."
-for f in config.py serverless_actor.py serverless_learner.py handler.py pre_compile.py; do
+for f in config.py serverless_actor.py serverless_learner.py handler.py pre_compile.py handler_runner.py; do
     apptainer exec --writable --fakeroot "$SANDBOX" \
         cp "/opt/unified/$f" "/opt/unified/$f.prev" 2>/dev/null || true
     cat "$f" | apptainer exec --writable --fakeroot "$SANDBOX" \
