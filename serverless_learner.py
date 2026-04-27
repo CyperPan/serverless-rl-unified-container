@@ -20,6 +20,7 @@ from ray.rllib.algorithms.appo import APPOConfig
 from ray.rllib.algorithms.appo.appo_torch_policy import APPOTorchPolicy
 from ray.rllib.algorithms.impala.impala import ImpalaConfig
 from ray.rllib.algorithms.impala.impala_torch_policy import ImpalaTorchPolicy
+from ray.rllib.evaluation.rollout_worker import RolloutWorker
 from ray.rllib.policy.sample_batch import SampleBatch
 
 import config
@@ -95,35 +96,20 @@ class ServerlessLearner:
             )
         )
 
-        # ray 2.8 RLModule API workaround. Even with experimental(
-        # _enable_new_api_stack=False) and the underscore-attribute set
-        # on the AlgorithmConfig, `to_dict()` may still emit the new-API
-        # bits (the underscore attribute doesn't always serialize). Force
-        # the dict shape that pre-RLModule TorchPolicyV2 expects:
-        #   - _enable_new_api_stack=False explicitly in the dict
-        #   - policy_id set to DEFAULT_POLICY_ID
-        #   - __marl_module_spec removed so make_rl_module() bails early
-        if hasattr(learner_config, "experimental"):
-            try:
-                learner_config = learner_config.experimental(
-                    _enable_new_api_stack=False)
-            except TypeError:
-                pass
-        if hasattr(learner_config, "_enable_new_api_stack"):
-            learner_config._enable_new_api_stack = False
-
-        from ray.rllib.policy.sample_batch import DEFAULT_POLICY_ID
-        config_dict = learner_config.to_dict()
-        config_dict["_enable_new_api_stack"] = False
-        config_dict["_enable_rl_module_api"] = False
-        config_dict["policy_id"] = DEFAULT_POLICY_ID
-        config_dict.pop("__marl_module_spec", None)
-
-        self.policy = policy_cls(
-            env.observation_space,
-            env.action_space,
-            config_dict,
+        # Construct the Policy through RolloutWorker (same path as
+        # ServerlessActor) instead of instantiating PPOTorchPolicy
+        # directly. RolloutWorker injects all the config bits that
+        # ray 2.8's TorchPolicyV2 expects (policy_id, marl_module_spec,
+        # exploration init), which the direct-construction path leaves
+        # in an inconsistent state. The unused sampler costs ~100 ms
+        # at build time but makes the learner robust against ray's
+        # internal config plumbing.
+        self.worker = RolloutWorker(
+            env_creator=lambda _: env,
+            config=learner_config,
+            default_policy_class=policy_cls,
         )
+        self.policy = self.worker.get_policy()
 
     # ---- Redis I/O (mirrors ServerlessActor) -------------------------- #
 
